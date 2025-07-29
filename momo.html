@@ -1,0 +1,127 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Akacha</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0b0c2a;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      position: absolute;
+      width: 100%;
+      bottom: 50px;
+      font-size: 2.5em;
+      color: #ffccff;
+      text-shadow: 2px 2px 10px #ff00ff;
+      animation: fadeInUp 2s ease-in-out infinite alternate;
+    }
+
+    .cake {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 150px;
+      height: 180px;
+    }
+
+    .cake-base {
+      background: #ff69b4;
+      height: 100px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .cake-top {
+      width: 100%;
+      height: 20px;
+      background: #fff;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .candle {
+      position: absolute;
+      width: 10px;
+      height: 40px;
+      background: #ff0;
+      top: -40px;
+      left: 70px;
+      border-radius: 5px;
+    }
+
+    .flame {
+      position: absolute;
+      top: -15px;
+      left: -5px;
+      width: 20px;
+      height: 20px;
+      background: orange;
+      border-radius: 50%;
+      animation: flicker 0.2s infinite;
+      box-shadow: 0 0 15px orange;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(10px); opacity: 0.7; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: yellow;
+      border-radius: 50%;
+      animation: explode 1s ease-out infinite;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cake">
+    <div class="cake-top"></div>
+    <div class="cake-base"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <h1>🎉 Happy Birthday akacha! 🎂</h1>
+
+  <!-- Fireworks JS -->
+  <script>
+    function createFirework() {
+      const fw = document.createElement('div');
+      fw.classList.add('firework');
+      fw.style.left = Math.random() * window.innerWidth + 'px';
+      fw.style.top = Math.random() * window.innerHeight / 2 + 'px';
+      fw.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      document.body.appendChild(fw);
+
+      setTimeout(() => fw.remove(), 1000);
+    }
+
+    setInterval(createFirework, 200);
+  </script>
+
+</body>
+</html>
